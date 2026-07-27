@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uma surpresa para você ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Fundo -->
+
+<div id="stars"></div>
+
+<div id="hearts"></div>
+
+<div id="roses"></div>
+
+<!-- Música (opcional, deixei preparada caso queira no futuro) -->
+
+<audio id="music" loop></audio>
+
+<!-- ===========================
+     TELA INICIAL
+============================ -->
+
+<section id="welcome" class="screen">
+
+    <div class="heart glow float">
+        ❤️
+    </div>
+
+    <h1>
+      
+        ❤️
+    </h1>
+
+    <p>
+        Clique no botão abaixo ❤️
+    </p>
+
+    <button id="startBtn">
+
+        Abrir
+
+    </button>
+
+</section>
+
+<!-- ===========================
+     CONTEÚDO
+============================ -->
+
+<section id="content" class="hidden">
+
+<div class="container">
+
+<!-- PRESENTE -->
+
+<div id="giftBox">
+
+🎁
+
+<p>
+
+Clique para abrir
+
+</p>
+
+</div>
+
+<!-- CARTA -->
+
+<div id="letter" class="hidden">
+
+<h2>
+
+Para você ❤️
+
+</h2>
+
+<p id="typedText"></p>
+
+</div>
+
+<!-- ===========================
+     ESCOLHA DO LOCAL
+============================ -->
+
+<div class="card hidden" id="placeCard">
+
+<h2>
+
+🌹 Escolha onde você prefere ir
+
+</h2>
+
+<div class="places">
+
+<div class="place">
+
+<h3>
+
+🍣 Opção 1
+
+</h3>
+
+<p>
+
+Restaurante
+
+</p>
+
+<a
+href="https://share.google/77OUPknUUNeomUjBT"
+target="_blank">
+
+Ver localização 📍
+
+</a>
+
+<br><br>
+
+<button
+class="choosePlace"
+data-place="Opção 1">
+
+Escolher ❤️
+
+</button>
+
+</div>
+
+<div class="place">
+
+<h3>
+
+🍔 Opção 2
+
+</h3>
+
+<p>
+
+Restaurante
+
+</p>
+
+<a
+href="https://share.google/EoOPkJdzQDDEJWvwN"
+target="_blank">
+
+Ver localização 📍
+
+</a>
+
+<br><br>
+
+<button
+class="choosePlace"
+data-place="Opção 2">
+
+Escolher ❤️
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===========================
+     DATA
+============================ -->
+
+<div class="card hidden" id="dateCard">
+
+<h2>
+
+Escolha um dia ❤️
+
+</h2>
+
+<input
+type="date"
+id="meetingDate">
+
+</div>
+
+<!-- ===========================
+     MENSAGEM
+============================ -->
+
+<div class="card hidden" id="messageCard">
+
+<h2>
+
+Me deixe uma mensagem ❤️
+
+</h2>
+
+<textarea
+id="message"
+placeholder="Escreva aqui..."></textarea>
+</div>
+
+<!-- ===========================
+     PERGUNTA FINAL
+============================ -->
+
+<div id="question" class="hidden">
+
+    <h1>
+
+        Você aceita sair comigo?
+
+        ❤️🥹
+
+    </h1>
+
+    <p class="subtitle">
+
+        Prometo fazer desse dia um momento muito especial.
+
+    </p>
+
+    <div class="buttons">
+
+        <button id="yes">
+
+            SIM ❤️
+
+        </button>
+
+        <button id="no">
+
+            NÃO 🙈
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+     TELA FINAL
+============================ -->
+
+<div id="success" class="hidden">
+
+    <div class="success-heart">
+
+        ❤️
+
+    </div>
+
+    <h1>
+
+        Você fez meu dia mais feliz!
+
+    </h1>
+
+    <p>
+
+        Muito obrigado por aceitar. ❤️
+
+    </p>
+
+    <p>
+
+        Agora é só esperar nosso encontro.
+
+        🌹🥰
+
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+     EMAILJS
+============================ -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init({
+
+    publicKey:"GihJWuouFDfnbGa89"
+
+});
+
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
