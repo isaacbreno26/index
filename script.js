@@ -52,12 +52,12 @@ Deu um trabalhinho fazer tudo isso.
 
 mas vc e bem gatinha vale a pena arriscar.
 
-
-
 E eu queria muito criar algo diferente.
 
+A NOITE VAI SER BOA CONFIA KKK
 
-Escolha um lugar onde eu possa te levar.
+
+DEIXEI ESSAS DUAS OPÇOES PRA VOCE ESCOLHER E TAMBEM DEIXEI A OPÇÃO PRA VOCE COLOCAR O DIA QUE VAI ESTAR MAIS TRANQUILA.
 
 `;
 
