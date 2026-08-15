@@ -318,21 +318,74 @@ function formatDate(dateString) {
 
 function confirmDate() {
 
-    /*
-       Aqui posteriormente vamos
-       colocar o EmailJS.
+    const button = document.querySelector(
+        "#page6 .main-button"
+    );
 
-       Quando ela clicar em
-       "CONFIRMAR ENCONTRO",
-       vamos enviar para seu e-mail:
+    // Evita clicar várias vezes
+    button.disabled = true;
 
-       - Local
-       - Data
-       - Observação
-    */
+    button.textContent = "Enviando... ❤️";
 
 
-    nextPage(7);
+    // Dados que serão enviados para o EmailJS
+    const templateParams = {
+
+        local: selectedPlace,
+
+        data: formatDate(selectedDate),
+
+        observacao:
+            selectedMessage ||
+            "Nenhuma observação"
+
+    };
+
+
+    console.log("Enviando dados:", templateParams);
+
+
+    emailjs.send(
+        "service_mqsl3bg",
+        "template_2omonny",
+        templateParams
+    )
+
+    .then(function(response) {
+
+        console.log(
+            "E-mail enviado com sucesso!",
+            response.status,
+            response.text
+        );
+
+
+        // Só mostra a tela final
+        // depois que o EmailJS aceitar o envio
+        nextPage(7);
+
+    })
+
+    .catch(function(error) {
+
+        console.error(
+            "Erro ao enviar e-mail:",
+            error
+        );
+
+
+        alert(
+            "Ops! Não consegui enviar a confirmação. 😢\n\n" +
+            "Verifique sua conexão e tente novamente."
+        );
+
+
+        button.disabled = false;
+
+        button.textContent =
+            "CONFIRMAR ENCONTRO ❤️";
+
+    });
 
 }
 
