@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function typeIntro() {
 
     const text =
-        "Olá, me desculpa, padre, pela demora 😂 Eu tive um trabalhinho pra fazer isso aqui... Mas como você é gatinha, eu achei que valia a pena o esforço. ❤️";
+        "Olá, me desculpa, pela demora kk  Eu tive um trabalhinho pra fazer isso aqui... Mas como você é bem gatinha te acho engraçada tambem , eu achei que valia a pena o esforço. ❤️";
 
     const element =
         document.getElementById("introText");
