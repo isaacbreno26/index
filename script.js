@@ -1,464 +1,1180 @@
-/* =========================
-   VARIÁVEIS
-========================= */
-
-let selectedPlace = "";
-
-let selectedDate = "";
-
-let selectedMessage = "";
+/* =========================================================
+   MÃE DINHA — SCRIPT.JS
+   ========================================================= */
 
 
-/* =========================
-   INÍCIO
-========================= */
+/* =========================================================
+   CONFIGURAÇÕES
+   ========================================================= */
+
+// COLOQUE AQUI O NÚMERO DO WHATSAPP
+// Formato: código do país + DDD + número
+// Exemplo: 5561999999999
+
+const WHATSAPP_NUMBER = "5500000000000";
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    typeIntro();
+    initPreloader();
 
-    createFloatingHearts();
+    initMobileMenu();
 
-    setMinimumDate();
+    initHeader();
+
+    initScrollReveal();
+
+    initBackToTop();
+
+    initEntityModal();
+
+    initWhatsApp();
+
+    initContactForm();
+
+    initParticles();
 
 });
 
 
-/* =========================
-   TEXTO DIGITANDO
-========================= */
+/* =========================================================
+   PRELOADER
+   ========================================================= */
 
-function typeIntro() {
+function initPreloader() {
 
-    const text =
-        "Olá, me desculpa, pela demora kk  Eu tive um trabalhinho pra fazer isso aqui... Mas como você é bem gatinha te acho engraçada tambem , eu achei que valia a pena o esforço. ❤️";
+    const preloader =
+        document.getElementById("preloader");
 
-    const element =
-        document.getElementById("introText");
-
-    let index = 0;
+    if (!preloader) return;
 
 
-    function type() {
+    window.addEventListener("load", () => {
 
-        if (index < text.length) {
+        setTimeout(() => {
 
-            element.textContent +=
-                text.charAt(index);
+            preloader.classList.add("loaded");
 
-            index++;
+        }, 700);
 
-            setTimeout(type, 35);
-
-        }
-
-    }
-
-
-    type();
+    });
 
 }
 
 
-/* =========================
-   TROCAR DE PÁGINA
-========================= */
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
 
-function nextPage(pageNumber) {
+function initMobileMenu() {
 
-    const currentPage =
-        document.querySelector(".page.active");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-    const nextPage =
-        document.getElementById(
-            `page${pageNumber}`
-        );
+    const navigation =
+        document.getElementById("navigation");
 
 
-    if (!nextPage) {
-        return;
-    }
+    if (!menuToggle || !navigation) return;
 
 
-    currentPage.classList.remove("active");
+    menuToggle.addEventListener("click", () => {
 
-    setTimeout(() => {
+        navigation.classList.toggle("active");
 
-        nextPage.classList.add("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }, 100);
-
-}
-
-
-/* =========================
-   ESCOLHER LOCAL
-========================= */
-
-function selectPlace(button, place) {
-
-    const options =
-        document.querySelectorAll(".option");
-
-
-    options.forEach(option => {
-
-        option.classList.remove("selected");
+        menuToggle.classList.toggle("active");
 
     });
 
 
-    button.classList.add("selected");
+    const links =
+        navigation.querySelectorAll("a");
 
 
-    selectedPlace = place;
+    links.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navigation.classList.remove("active");
+
+            menuToggle.classList.remove("active");
+
+        });
+
+    });
+
+}
 
 
-    const continueButton =
-        document.getElementById(
-            "placeButton"
-        );
+/* =========================================================
+   HEADER AO ROLAR
+   ========================================================= */
+
+function initHeader() {
+
+    const header =
+        document.getElementById("header");
+
+    if (!header) return;
 
 
-    continueButton.classList.remove(
-        "disabled"
+    function checkScroll() {
+
+        if (window.scrollY > 50) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        checkScroll,
+        { passive: true }
     );
 
 
-    continueButton.textContent =
-        "Continuar ❤️";
+    checkScroll();
 
 }
 
 
-/* =========================
-   DEFINIR DATA MÍNIMA
-========================= */
+/* =========================================================
+   ANIMAÇÕES AO ENTRAR NA TELA
+   ========================================================= */
 
-function setMinimumDate() {
+function initScrollReveal() {
 
-    const dateInput =
-        document.getElementById("date");
-
-
-    const today =
-        new Date();
-
-
-    const year =
-        today.getFullYear();
-
-
-    const month =
-        String(
-            today.getMonth() + 1
-        ).padStart(2, "0");
+    const elements = document.querySelectorAll(
+        ".section-heading, " +
+        ".about-content, " +
+        ".about-visual, " +
+        ".entity-card, " +
+        ".consultation-card, " +
+        ".testimonial-card, " +
+        ".contact-info, " +
+        ".contact-form-wrapper"
+    );
 
 
-    const day =
-        String(
-            today.getDate()
-        ).padStart(2, "0");
+    if (!elements.length) return;
 
 
-    const todayFormatted =
-        `${year}-${month}-${day}`;
+    elements.forEach(element => {
+
+        element.classList.add("reveal");
+
+    });
 
 
-    dateInput.min =
-        todayFormatted;
+    const observer =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    elements.forEach(element => {
+
+        observer.observe(element);
+
+    });
 
 }
 
 
-/* =========================
-   VERIFICAR DATA
-========================= */
+/* =========================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================= */
 
-function checkDate() {
-
-    const dateInput =
-        document.getElementById("date");
-
-
-    selectedDate =
-        dateInput.value;
-
+function initBackToTop() {
 
     const button =
-        document.getElementById(
-            "dateButton"
-        );
+        document.getElementById("backToTop");
+
+    if (!button) return;
 
 
-    if (selectedDate !== "") {
+    window.addEventListener(
+        "scroll",
+        () => {
 
-        button.classList.remove(
-            "disabled"
-        );
+            if (window.scrollY > 600) {
 
-        button.textContent =
-            "Continuar ❤️";
+                button.classList.add(
+                    "visible"
+                );
 
-    } else {
+            } else {
 
-        button.classList.add(
-            "disabled"
-        );
+                button.classList.remove(
+                    "visible"
+                );
 
-        button.textContent =
-            "Escolha uma data";
+            }
 
-    }
+        },
+        { passive: true }
+    );
+
+
+    button.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
 
 }
 
 
-/* =========================
-   FINALIZAR CONVITE
-========================= */
+/* =========================================================
+   MODAL DAS ENTIDADES
+   ========================================================= */
 
-function finishInvitation() {
+function initEntityModal() {
 
-    const messageInput =
+    const modal =
+        document.getElementById("entityModal");
+
+    const overlay =
+        document.getElementById("modalOverlay");
+
+    const closeButton =
+        document.getElementById("modalClose");
+
+    const title =
+        document.getElementById("modalTitle");
+
+    const label =
+        document.getElementById("modalLabel");
+
+    const description =
         document.getElementById(
-            "message"
+            "modalDescription"
         );
 
+    const symbol =
+        document.getElementById("modalSymbol");
 
-    selectedMessage =
-        messageInput.value.trim();
-
-
-    if (!selectedPlace) {
-
-        alert(
-            "Escolha um lugar primeiro ❤️"
-        );
-
-        nextPage(3);
-
-        return;
-    }
+    const colors =
+        document.getElementById("modalColors");
 
 
-    if (!selectedDate) {
-
-        alert(
-            "Escolha uma data primeiro ❤️"
-        );
-
-        nextPage(4);
-
-        return;
-    }
+    if (!modal) return;
 
 
     /*
-       Coloca as informações
-       na tela final.
-    */
+     * Informações das entidades
+     *
+     * Você poderá alterar os textos
+     * posteriormente.
+     */
 
-    document.getElementById(
-        "finalPlace"
-    ).textContent =
-        selectedPlace;
+    const entities = {
 
+        "ze-pilintra": {
 
-    document.getElementById(
-        "finalDate"
-    ).textContent =
-        formatDate(selectedDate);
+            label: "ENTIDADE",
 
+            title: "Zé Pilintra",
 
-    document.getElementById(
-        "finalMessage"
-    ).textContent =
-        selectedMessage ||
-        "Nenhuma observação";
+            symbol: "🎩",
 
+            description:
+                "Espaço dedicado à apresentação da entidade, sua simbologia e à forma como são realizados os atendimentos com Mãe Dinha.",
 
-    nextPage(6);
+            colors: [
+                "#050505",
+                "#a91e32",
+                "#f5f5f5"
+            ]
 
-}
-
-
-/* =========================
-   FORMATAR DATA
-========================= */
-
-function formatDate(dateString) {
-
-    const date =
-        new Date(
-            dateString + "T00:00:00"
-        );
+        },
 
 
-    return date.toLocaleDateString(
-        "pt-BR",
-        {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric"
+        "cigana-safira": {
+
+            label: "ENTIDADE",
+
+            title: "Cigana Safira",
+
+            symbol: "🌻",
+
+            description:
+                "Uma área especial dedicada à Cigana Safira, com uma identidade visual inspirada em flores, luz, dourado e tons amarelos.",
+
+            colors: [
+                "#f1c72d",
+                "#d6ad54",
+                "#e88a19"
+            ]
+
+        },
+
+
+        "maria-padilha": {
+
+            label: "ENTIDADE",
+
+            title:
+                "Dona Maria Padilha Sete Encruzas",
+
+            symbol: "🌹",
+
+            description:
+                "Uma apresentação dedicada a Dona Maria Padilha Sete Encruzas, com elementos visuais em vermelho, preto e dourado.",
+
+            colors: [
+                "#050505",
+                "#a91e32",
+                "#d6ad54"
+            ]
+
+        },
+
+
+        "sete-saias": {
+
+            label: "ENTIDADE",
+
+            title:
+                "Pomba Gira Sete Saias da Calunga",
+
+            symbol: "🌹",
+
+            description:
+                "Uma área dedicada à Pomba Gira Sete Saias da Calunga, utilizando uma identidade visual em tons de preto, vermelho e roxo.",
+
+            colors: [
+                "#050505",
+                "#a91e32",
+                "#743d8f"
+            ]
+
         }
-    );
-
-}
-
-
-/* =========================
-   CONFIRMAR ENCONTRO
-========================= */
-
-function confirmDate() {
-
-    const button = document.querySelector(
-        "#page6 .main-button"
-    );
-
-    // Evita clicar várias vezes
-    button.disabled = true;
-
-    button.textContent = "Enviando... ❤️";
-
-
-    // Dados que serão enviados para o EmailJS
-    const templateParams = {
-
-        local: selectedPlace,
-
-        data: formatDate(selectedDate),
-
-        observacao:
-            selectedMessage ||
-            "Nenhuma observação"
 
     };
 
 
-    console.log("Enviando dados:", templateParams);
+    /*
+     * Abrir modal
+     */
 
-
-    emailjs.send(
-        "service_mqsl3bg",
-        "template_2omonny",
-        templateParams
-    )
-
-    .then(function(response) {
-
-        console.log(
-            "E-mail enviado com sucesso!",
-            response.status,
-            response.text
+    const buttons =
+        document.querySelectorAll(
+            ".entity-button"
         );
 
 
-        // Só mostra a tela final
-        // depois que o EmailJS aceitar o envio
-        nextPage(7);
+    buttons.forEach(button => {
 
-    })
+        button.addEventListener(
+            "click",
+            () => {
 
-    .catch(function(error) {
+                const entityId =
+                    button.dataset.entity;
 
-        console.error(
-            "Erro ao enviar e-mail:",
-            error
+                const entity =
+                    entities[entityId];
+
+
+                if (!entity) return;
+
+
+                label.textContent =
+                    entity.label;
+
+
+                title.textContent =
+                    entity.title;
+
+
+                description.textContent =
+                    entity.description;
+
+
+                symbol.textContent =
+                    entity.symbol;
+
+
+                colors.innerHTML = "";
+
+
+                entity.colors.forEach(
+                    color => {
+
+                        const span =
+                            document.createElement(
+                                "span"
+                            );
+
+                        span.classList.add(
+                            "color"
+                        );
+
+                        span.style.background =
+                            color;
+
+                        colors.appendChild(
+                            span
+                        );
+
+                    }
+                );
+
+
+                modal.classList.add(
+                    "active"
+                );
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+            }
         );
-
-
-        alert(
-            "Ops! Não consegui enviar a confirmação. 😢\n\n" +
-            "Verifique sua conexão e tente novamente."
-        );
-
-
-        button.disabled = false;
-
-        button.textContent =
-            "CONFIRMAR ENCONTRO ❤️";
 
     });
+
+
+    /*
+     * Fechar modal
+     */
+
+    function closeModal() {
+
+        modal.classList.remove(
+            "active"
+        );
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "modal-open"
+        );
+
+    }
+
+
+    closeButton.addEventListener(
+        "click",
+        closeModal
+    );
+
+
+    overlay.addEventListener(
+        "click",
+        closeModal
+    );
+
+
+    /*
+     * Fechar com ESC
+     */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+    /*
+     * Quando clicar em "Agendar consulta"
+     * fecha o modal e vai para contato.
+     */
+
+    const modalContact =
+        document.getElementById(
+            "modalContact"
+        );
+
+
+    if (modalContact) {
+
+        modalContact.addEventListener(
+            "click",
+            () => {
+
+                closeModal();
+
+            }
+        );
+
+    }
 
 }
 
 
-/* =========================
-   CORAÇÕES FLUTUANTES
-========================= */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
 
-function createFloatingHearts() {
+function initWhatsApp() {
 
-    const container =
-        document.querySelector(
-            ".hearts-container"
+    const floatingButton =
+        document.getElementById(
+            "floatingWhatsapp"
+        );
+
+    const normalButton =
+        document.getElementById(
+            "whatsappButton"
         );
 
 
-    const hearts = [
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💘"
-    ];
+    /*
+     * Mensagem inicial
+     */
+
+    const message =
+        encodeURIComponent(
+            "Olá, Mãe Dinha! Gostaria de saber mais sobre as consultas e atendimentos."
+        );
 
 
-    setInterval(() => {
+    /*
+     * Link do WhatsApp
+     */
 
-        const heart =
-            document.createElement(
-                "div"
+    const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+
+    /*
+     * Botão flutuante
+     */
+
+    if (floatingButton) {
+
+        floatingButton.href =
+            whatsappURL;
+
+        floatingButton.target =
+            "_blank";
+
+        floatingButton.rel =
+            "noopener noreferrer";
+
+    }
+
+
+    /*
+     * Botão da área de contato
+     */
+
+    if (normalButton) {
+
+        normalButton.href =
+            whatsappURL;
+
+        normalButton.target =
+            "_blank";
+
+        normalButton.rel =
+            "noopener noreferrer";
+
+    }
+
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+function initContactForm() {
+
+    const form =
+        document.getElementById(
+            "contactForm"
+        );
+
+    const messageBox =
+        document.getElementById(
+            "formMessage"
+        );
+
+
+    if (!form) return;
+
+
+    form.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            /*
+             * Aqui futuramente vamos
+             * conectar o EmailJS.
+             */
+
+
+            const name =
+                document.getElementById(
+                    "name"
+                ).value.trim();
+
+
+            const phone =
+                document.getElementById(
+                    "phone"
+                ).value.trim();
+
+
+            const service =
+                document.getElementById(
+                    "service"
+                ).value;
+
+
+            const message =
+                document.getElementById(
+                    "message"
+                ).value.trim();
+
+
+            /*
+             * Validação
+             */
+
+            if (
+                !name ||
+                !phone ||
+                !service ||
+                !message
+            ) {
+
+                showFormMessage(
+                    "Preencha todos os campos.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * Por enquanto apenas
+             * mostramos uma mensagem.
+             *
+             * Depois vamos conectar
+             * o EmailJS aqui.
+             */
+
+            showFormMessage(
+                "Mensagem preenchida com sucesso! Em breve faremos a integração com o WhatsApp/EmailJS.",
+                "success"
             );
 
 
-        heart.classList.add(
-            "floating-heart"
-        );
+            /*
+             * Limpa o formulário
+             */
+
+            form.reset();
+
+        }
+    );
 
 
-        heart.textContent =
-            hearts[
-                Math.floor(
-                    Math.random() *
-                    hearts.length
-                )
-            ];
+    function showFormMessage(
+        text,
+        type
+    ) {
+
+        if (!messageBox) return;
 
 
-        heart.style.left =
-            Math.random() * 100 + "%";
+        messageBox.textContent =
+            text;
 
 
-        heart.style.fontSize =
-            (15 + Math.random() * 20)
-            + "px";
+        if (type === "success") {
 
+            messageBox.style.color =
+                "#d6ad54";
 
-        heart.style.animationDuration =
-            (5 + Math.random() * 5)
-            + "s";
+        } else {
 
+            messageBox.style.color =
+                "#e56b7d";
 
-        container.appendChild(
-            heart
-        );
+        }
 
 
         setTimeout(() => {
 
-            heart.remove();
+            messageBox.textContent =
+                "";
 
-        }, 10000);
+        }, 6000);
 
-
-    }, 700);
+    }
 
 }
+
+
+/* =========================================================
+   PARTÍCULAS
+   ========================================================= */
+
+function initParticles() {
+
+    const particlesContainer =
+        document.querySelector(
+            ".particles"
+        );
+
+
+    if (!particlesContainer) return;
+
+
+    /*
+     * Quantidade de partículas
+     */
+
+    const quantity = 45;
+
+
+    for (
+        let i = 0;
+        i < quantity;
+        i++
+    ) {
+
+        createParticle(
+            particlesContainer
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CRIAR PARTÍCULA
+   ========================================================= */
+
+function createParticle(
+    container
+) {
+
+    const particle =
+        document.createElement(
+            "span"
+        );
+
+
+    particle.style.position =
+        "absolute";
+
+
+    particle.style.width =
+        `${Math.random() * 3 + 1}px`;
+
+
+    particle.style.height =
+        particle.style.width;
+
+
+    particle.style.borderRadius =
+        "50%";
+
+
+    particle.style.background =
+        "rgba(214,173,84,0.7)";
+
+
+    particle.style.left =
+        `${Math.random() * 100}%`;
+
+
+    particle.style.top =
+        `${Math.random() * 100}%`;
+
+
+    particle.style.opacity =
+        `${Math.random() * 0.6 + 0.2}`;
+
+
+    particle.style.boxShadow =
+        "0 0 8px rgba(214,173,84,0.4)";
+
+
+    const duration =
+        Math.random() * 5 + 5;
+
+
+    const delay =
+        Math.random() * 5;
+
+
+    particle.animate(
+
+        [
+
+            {
+                transform:
+                    "translateY(0) scale(1)",
+
+                opacity:
+                    particle.style.opacity
+
+            },
+
+            {
+
+                transform:
+                    `translateY(-${Math.random() * 80 + 30}px) scale(1.5)`,
+
+                opacity: 0.1
+
+            },
+
+            {
+
+                transform:
+                    "translateY(0) scale(1)",
+
+                opacity:
+                    particle.style.opacity
+
+            }
+
+        ],
+
+        {
+
+            duration:
+                duration * 1000,
+
+            delay:
+                delay * 1000,
+
+            iterations:
+                Infinity,
+
+            easing:
+                "ease-in-out"
+
+        }
+
+    );
+
+
+    container.appendChild(
+        particle
+    );
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO SUAVE
+   ========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor => {
+
+    anchor.addEventListener(
+        "click",
+        function (event) {
+
+            const targetId =
+                this.getAttribute(
+                    "href"
+                );
+
+
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+
+                return;
+
+            }
+
+
+            const target =
+                document.querySelector(
+                    targetId
+                );
+
+
+            if (!target) return;
+
+
+            event.preventDefault();
+
+
+            const header =
+                document.getElementById(
+                    "header"
+                );
+
+
+            const headerHeight =
+                header
+                    ? header.offsetHeight
+                    : 0;
+
+
+            const targetPosition =
+                target.getBoundingClientRect()
+                    .top
+                +
+                window.scrollY
+                -
+                headerHeight;
+
+
+            window.scrollTo({
+
+                top:
+                    targetPosition,
+
+                behavior:
+                    "smooth"
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   EFEITO DE MOUSE NAS ENTIDADES
+   ========================================================= */
+
+document.querySelectorAll(
+    ".entity-card"
+).forEach(card => {
+
+
+    card.addEventListener(
+        "mousemove",
+        event => {
+
+            /*
+             * Não aplica no celular.
+             */
+
+            if (
+                window.innerWidth <= 700
+            ) {
+
+                return;
+
+            }
+
+
+            const rect =
+                card.getBoundingClientRect();
+
+
+            const x =
+                event.clientX -
+                rect.left;
+
+
+            const y =
+                event.clientY -
+                rect.top;
+
+
+            const centerX =
+                rect.width / 2;
+
+
+            const centerY =
+                rect.height / 2;
+
+
+            const rotateX =
+                (y - centerY) /
+                35;
+
+
+            const rotateY =
+                (centerX - x) /
+                35;
+
+
+            card.style.transform =
+                `perspective(1000px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-8px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        () => {
+
+            card.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   EFEITO DE CURSOR NO HERO
+   ========================================================= */
+
+const hero =
+    document.querySelector(
+        ".hero"
+    );
+
+
+if (hero) {
+
+    hero.addEventListener(
+        "mousemove",
+        event => {
+
+            if (
+                window.innerWidth <= 700
+            ) {
+
+                return;
+
+            }
+
+
+            const x =
+                (
+                    event.clientX /
+                    window.innerWidth
+                ) * 100;
+
+
+            const y =
+                (
+                    event.clientY /
+                    window.innerHeight
+                ) * 100;
+
+
+            hero.style.backgroundPosition =
+                `${x}% ${y}%`;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DO BOTÃO DO MENU
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+
+if (menuToggle) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            menuToggle.classList.toggle(
+                "open"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MENSAGEM DE BOAS-VINDAS NO CONSOLE
+   ========================================================= */
+
+console.log(
+    "%c✦ Mãe Dinha ✦",
+    "color:#d6ad54;font-size:20px;font-weight:bold;"
+);
+
+console.log(
+    "Site carregado com sucesso."
+);
