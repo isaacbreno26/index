@@ -1,6 +1,11 @@
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+/* =========================================================
+   MÃE DINHA — STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
     margin: 0;
@@ -8,613 +13,222 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    min-height: 100vh;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #ff8fa3 0%,
-            #ff5277 35%,
-            #b9184b 100%
-        );
-
-    color: #fff;
-
+    font-family: "Poppins", sans-serif;
+    background: #0b0809;
+    color: #f5eee8;
     overflow-x: hidden;
 }
 
-
-/* =========================
-   PÁGINAS
-========================= */
-
-.page {
-    min-height: 100vh;
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
-
-    padding: 30px 20px;
-
-    position: relative;
-
-    z-index: 2;
+body.modal-open {
+    overflow: hidden;
 }
 
-.page.active {
-    display: flex;
-
-    animation:
-        pageIn 0.7s ease;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
 
-@keyframes pageIn {
+button {
+    border: none;
+    cursor: pointer;
+}
 
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
 
-.card {
+:root {
 
-    width: 100%;
-    max-width: 550px;
+    --black: #080607;
+    --black-light: #120d0f;
 
-    padding: 45px 35px;
+    --gold: #d6ad54;
+    --gold-light: #f3d78b;
+    --gold-dark: #8e6824;
+
+    --red: #8f1525;
+    --red-light: #c62b42;
+
+    --purple: #5c2875;
+    --purple-light: #8d4db1;
+
+    --yellow: #e4b51d;
+    --yellow-light: #ffe47a;
+
+    --white: #ffffff;
+    --cream: #f5eee8;
+
+    --gray: #b9afb1;
+    --gray-dark: #746b6e;
+
+    --border: rgba(214, 173, 84, 0.25);
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+    --gold-shadow:
+        0 0 40px rgba(214, 173, 84, 0.2);
+
+    --container: 1200px;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(92%, var(--container));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PRELOADER
+   ========================================================= */
+
+#preloader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
 
     background:
-        rgba(255, 255, 255, 0.15);
+        radial-gradient(
+            circle at center,
+            #26171a 0%,
+            #0b0809 55%,
+            #050405 100%
+        );
 
-    backdrop-filter: blur(18px);
+    display: flex;
 
-    -webkit-backdrop-filter: blur(18px);
+    align-items: center;
+    justify-content: center;
 
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.3);
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
 
-    border-radius: 30px;
+}
 
-    box-shadow:
-        0 25px 60px
-        rgba(0, 0, 0, 0.25);
+#preloader.loaded {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+.loader-content {
 
     text-align: center;
-}
-
-
-/* =========================
-   CORAÇÃO
-========================= */
-
-.heart {
-
-    font-size: 70px;
-
-    margin-bottom: 20px;
-
-    animation:
-        heartbeat 1.5s infinite;
-}
-
-
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
 
 }
 
+.loader-symbol {
 
-.big-heart {
+    width: 80px;
+    height: 80px;
 
-    font-size: 90px;
+    margin: 0 auto 25px;
 
-    margin-bottom: 20px;
+    border:
 
-    animation:
-        heartbeat 1.4s infinite;
-}
+        1px solid
+        rgba(214, 173, 84, 0.5);
 
-
-/* =========================
-   TÍTULOS
-========================= */
-
-h1 {
-
-    font-size: 36px;
-
-    margin-bottom: 20px;
-
-    font-weight: 800;
-}
-
-
-h2 {
-
-    font-size: 30px;
-
-    margin-bottom: 15px;
-}
-
-
-.card > p {
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    opacity: 0.95;
-
-    margin-bottom: 25px;
-}
-
-
-.emoji-title {
-
-    font-size: 55px;
-
-    margin-bottom: 15px;
-}
-
-
-/* =========================
-   TEXTO INICIAL
-========================= */
-
-.typing-text {
-
-    min-height: 120px;
-
-    font-size: 18px;
-
-    line-height: 1.8;
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================
-   BOTÕES
-========================= */
-
-.main-button {
-
-    border: none;
-
-    padding: 16px 28px;
-
-    border-radius: 50px;
-
-    background: #fff;
-
-    color: #d92958;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        0.3s ease;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0, 0, 0, 0.2);
-}
-
-
-.main-button:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
-    box-shadow:
-        0 15px 30px
-        rgba(0, 0, 0, 0.3);
-}
-
-
-.main-button:active {
-
-    transform:
-        scale(0.97);
-}
-
-
-.main-button.disabled {
-
-    opacity: 0.5;
-
-    pointer-events: none;
-}
-
-
-/* =========================
-   MOTIVOS
-========================= */
-
-.reasons {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
-
-    margin: 25px 0 30px;
-}
-
-
-.reason {
+    border-radius: 50%;
 
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
-    gap: 15px;
-
-    text-align: left;
-
-    padding: 15px;
-
-    border-radius: 18px;
-
-    background:
-        rgba(255, 255, 255, 0.12);
-
-    transition:
-        0.3s ease;
-}
-
-
-.reason:hover {
-
-    transform:
-        translateX(6px);
-
-    background:
-        rgba(255, 255, 255, 0.2);
-}
-
-
-.reason span {
-
-    font-size: 30px;
-
-    min-width: 40px;
-}
-
-
-.reason p {
-
-    font-size: 15px;
-
-    line-height: 1.4;
-}
-
-
-/* =========================
-   OPÇÕES DE LOCAL
-========================= */
-
-.options {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 15px;
-
-    margin: 30px 0;
-}
-
-
-.option {
-
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    text-align: left;
-
-    padding: 18px;
-
-    border: 2px solid
-        rgba(255, 255, 255, 0.2);
-
-    border-radius: 20px;
-
-    background:
-        rgba(255, 255, 255, 0.1);
-
-    color: #fff;
-
-    cursor: pointer;
-
-    transition:
-        0.3s ease;
-}
-
-
-.option:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(255, 255, 255, 0.2);
-}
-
-
-.option.selected {
-
-    background: #fff;
-
-    color: #d92958;
-
-    border-color: #fff;
-
-    transform:
-        scale(1.02);
-}
-
-
-.option > span {
+    color: var(--gold-light);
 
     font-size: 35px;
-}
-
-
-.option strong {
-
-    display: block;
-
-    font-size: 17px;
-
-    margin-bottom: 5px;
-}
-
-
-.option small {
-
-    opacity: 0.8;
-}
-
-
-/* =========================
-   INPUTS
-========================= */
-
-.input-group {
-
-    display: flex;
-
-    flex-direction: column;
-
-    text-align: left;
-
-    margin: 30px 0;
-}
-
-
-.input-group label {
-
-    margin-bottom: 10px;
-
-    font-weight: 600;
-}
-
-
-input,
-textarea {
-
-    width: 100%;
-
-    border: none;
-
-    outline: none;
-
-    border-radius: 15px;
-
-    padding: 16px;
-
-    font-size: 16px;
-
-    font-family: inherit;
-
-    color: #333;
-
-    background: #fff;
-
-    transition:
-        0.3s ease;
-}
-
-
-input:focus,
-textarea:focus {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 8px 25px
-        rgba(0, 0, 0, 0.2);
-}
-
-
-textarea {
-
-    min-height: 130px;
-
-    resize: vertical;
-}
-
-
-/* =========================
-   RESUMO
-========================= */
-
-.summary {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-    margin: 30px 0;
-}
-
-
-.summary > div {
-
-    padding: 15px;
-
-    border-radius: 18px;
-
-    background:
-        rgba(255, 255, 255, 0.12);
-}
-
-
-.summary span {
-
-    font-size: 25px;
-
-    display: block;
-
-    margin-bottom: 5px;
-}
-
-
-.summary strong {
-
-    display: block;
-
-    margin-bottom: 5px;
-}
-
-
-.summary p {
-
-    font-size: 15px;
-
-    word-break: break-word;
-}
-
-
-/* =========================
-   FINAL
-========================= */
-
-.final-card h1 {
-
-    font-size: 34px;
-}
-
-
-.success-icon {
-
-    font-size: 90px;
 
     animation:
-        successPulse 1.5s infinite;
-}
-
-
-@keyframes successPulse {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+        loaderPulse 2s infinite ease-in-out;
 
 }
 
+.loader-content h2 {
 
-.final-text {
+    font-family: "Cinzel", serif;
 
-    display: block;
+    color: var(--gold-light);
 
-    font-size: 20px;
+    font-size: 26px;
 
-    margin: 20px 0;
+    letter-spacing: 3px;
+
+}
+
+.loader-content p {
+
+    margin-top: 8px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
 }
 
 
-.hearts {
-
-    font-size: 25px;
-
-    margin-top: 25px;
-
-    animation:
-        floatHearts 2s infinite;
-}
-
-
-@keyframes floatHearts {
+@keyframes loaderPulse {
 
     0%,
     100% {
-        transform: translateY(0);
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 0 rgba(214, 173, 84, 0);
+
     }
 
     50% {
-        transform: translateY(-8px);
+
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 40px rgba(214, 173, 84, 0.25);
+
     }
 
 }
 
 
-/* =========================
-   CORAÇÕES FLUTUANDO
-========================= */
+/* =========================================================
+   ELEMENTOS DECORATIVOS
+   ========================================================= */
 
-.hearts-container {
+.particles,
+.floating-hearts,
+.stars {
 
     position: fixed;
 
@@ -622,101 +236,3301 @@ textarea {
 
     pointer-events: none;
 
-    overflow: hidden;
-
     z-index: 1;
+
+}
+
+.stars {
+
+    opacity: 0.35;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.7) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    animation:
+        starsMove 25s linear infinite;
+
+}
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+
 }
 
 
-.floating-heart {
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    padding: 22px 0;
+
+    transition:
+        background 0.4s ease,
+        padding 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+.header.scrolled {
+
+    padding: 13px 0;
+
+    background:
+        rgba(8, 6, 7, 0.94);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+.nav-container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    color: var(--gold-light);
+
+    letter-spacing: 1px;
+
+}
+
+.logo-symbol {
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+}
+
+
+.navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+
+}
+
+.navigation a {
+
+    position: relative;
+
+    color: rgba(255,255,255,0.82);
+
+    font-size: 13px;
+
+    transition:
+        color 0.3s ease;
+
+}
+
+.navigation a::after {
+
+    content: "";
 
     position: absolute;
 
-    bottom: -50px;
+    left: 0;
 
-    font-size: 20px;
+    bottom: -7px;
 
-    opacity: 0.6;
+    width: 0;
 
-    animation:
-        floatUp linear forwards;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition:
+        width 0.3s ease;
+
+}
+
+.navigation a:hover {
+
+    color: var(--gold-light);
+
+}
+
+.navigation a:hover::after {
+
+    width: 100%;
+
 }
 
 
-@keyframes floatUp {
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    background: transparent;
+
+    width: 42px;
+    height: 42px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 6px;
+
+}
+
+.menu-toggle span {
+
+    width: 25px;
+    height: 2px;
+
+    display: block;
+
+    background: var(--gold-light);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(130, 30, 45, 0.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(214, 173, 84, 0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #11090b,
+            #050405 65%,
+            #170b0e
+        );
+
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(214,173,84,0.18) 1px,
+            transparent 1px
+        );
+
+    background-size: 90px 90px;
+
+    opacity: 0.3;
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.2),
+            rgba(0,0,0,0.65)
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 80px;
+
+    animation:
+        heroAppear 1.4s ease forwards;
+
+}
+
+
+@keyframes heroAppear {
 
     from {
 
-        transform:
-            translateY(0)
-            rotate(0deg);
-
         opacity: 0;
-    }
-
-    10% {
-        opacity: 0.7;
-    }
-
-    100% {
 
         transform:
-            translateY(-110vh)
-            rotate(360deg);
+            translateY(30px);
 
-        opacity: 0;
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
     }
 
 }
 
 
-/* =========================
-   CELULAR
-========================= */
+.hero-symbol {
 
-@media (max-width: 600px) {
+    width: 85px;
+    height: 85px;
 
-    .card {
+    border:
+        1px solid
+        rgba(214,173,84,0.5);
 
-        padding: 35px 22px;
+    border-radius: 50%;
 
-        border-radius: 25px;
+    margin: 0 auto 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    color: var(--gold-light);
+
+    box-shadow:
+        0 0 50px rgba(214,173,84,0.13);
+
+}
+
+
+.hero-subtitle {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero h1 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(60px, 9vw, 120px);
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 40px rgba(214,173,84,0.15);
+
+}
+
+
+.hero h2 {
+
+    margin-top: 20px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(22px, 3vw, 34px);
+
+    font-weight: 400;
+
+    color: var(--cream);
+
+}
+
+
+.hero p {
+
+    max-width: 620px;
+
+    margin: 22px auto 35px;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn {
+
+    min-height: 52px;
+
+    padding: 0 30px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 3px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.btn-primary {
+
+    color: #120b07;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(214,173,84,0.15);
+
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(214,173,84,0.3);
+
+}
+
+
+.btn-outline {
+
+    border:
+        1px solid
+        rgba(214,173,84,0.55);
+
+    color: var(--gold-light);
+
+}
+
+
+.btn-outline:hover {
+
+    background:
+        rgba(214,173,84,0.08);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.btn-dark {
+
+    background: #15100c;
+
+    color: #fff;
+
+}
+
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: var(--gray-dark);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.scroll-arrow {
+
+    margin-top: 5px;
+
+    color: var(--gold);
+
+    font-size: 18px;
+
+    animation:
+        scrollBounce 1.8s infinite;
+
+}
+
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.section {
+
+    position: relative;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.section-heading {
+
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+
+}
+
+
+.section-decoration {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.section-subtitle {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+}
+
+
+.section-heading h2 {
+
+    margin-top: 10px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(36px, 5vw, 54px);
+
+    font-weight: 500;
+
+    color: var(--cream);
+
+}
+
+
+.section-heading p {
+
+    margin-top: 18px;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+}
+
+
+.section-line {
+
+    width: 70px;
+
+    height: 1px;
+
+    margin: 20px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+
+.about {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 40%,
+            rgba(143,21,37,0.08),
+            transparent 30%
+        ),
+
+        #0d090a;
+
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.about-visual {
+
+    min-height: 500px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.spiritual-circle {
+
+    width: 360px;
+    height: 360px;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.45);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,173,84,0.12),
+            transparent 60%
+        );
+
+    box-shadow:
+        0 0 80px
+        rgba(214,173,84,0.08);
+
+}
+
+
+.spiritual-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border:
+        1px dashed
+        rgba(214,173,84,0.25);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle 30s linear infinite;
+
+}
+
+
+@keyframes rotateCircle {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+.circle-symbol {
+
+    font-size: 90px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 50px rgba(214,173,84,0.35);
+
+}
+
+
+.circle-stars {
+
+    position: absolute;
+
+    color: var(--gold);
+
+    letter-spacing: 25px;
+
+    font-size: 17px;
+
+}
+
+
+.about-decoration {
+
+    position: absolute;
+
+    color: var(--gold);
+
+    font-size: 30px;
+
+}
+
+
+.about-decoration-1 {
+
+    top: 50px;
+    right: 80px;
+
+}
+
+
+.about-decoration-2 {
+
+    bottom: 70px;
+    left: 70px;
+
+    color: var(--red-light);
+
+}
+
+
+.about-content h3 {
+
+    margin-top: 12px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 35px;
+
+    line-height: 1.3;
+
+    font-weight: 500;
+
+}
+
+
+.about-content > p {
+
+    margin-top: 20px;
+
+    color: var(--gray);
+
+    line-height: 1.9;
+
+}
+
+
+.small-title {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.about-features {
+
+    margin-top: 35px;
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+.feature-item {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+}
+
+
+.feature-icon {
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.25);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gold);
+
+}
+
+
+.feature-item h4 {
+
+    font-size: 14px;
+
+    color: var(--cream);
+
+}
+
+
+.feature-item p {
+
+    margin-top: 3px;
+
+    color: var(--gray-dark);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   ENTIDADES
+   ========================================================= */
+
+.entities {
+
+    background: #080607;
+
+}
+
+
+.entities-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.entity-card {
+
+    min-height: 550px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.5s ease,
+        border 0.5s ease,
+        box-shadow 0.5s ease;
+
+}
+
+
+.entity-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.5);
+
+}
+
+
+/* =========================================================
+   ZÉ PILINTRA CARD
+   ========================================================= */
+
+.ze-pilintra {
+
+    background:
+
+        radial-gradient(
+            circle at 70% 25%,
+            rgba(143,21,37,0.3),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #080808,
+            #171112
+        );
+
+}
+
+
+.ze-pilintra::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: -100px;
+    right: -80px;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.25);
+
+    border-radius: 50%;
+
+}
+
+
+.ze-pilintra:hover {
+
+    border-color:
+        rgba(214,173,84,0.35);
+
+}
+
+
+/* =========================================================
+   CIGANA SAFIRA CARD
+   ========================================================= */
+
+.cigana-safira {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,216,75,0.3),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #b88b05,
+            #5d4500
+        );
+
+    color: #201702;
+
+}
+
+
+.cigana-safira .entity-label {
+
+    color: #3b2a00;
+
+}
+
+
+.cigana-safira h3 {
+
+    color: #fff8d5;
+
+}
+
+
+.cigana-safira p {
+
+    color:
+        rgba(255,248,213,0.8);
+
+}
+
+
+.cigana-safira:hover {
+
+    box-shadow:
+        0 30px 70px
+        rgba(228,181,29,0.2);
+
+}
+
+
+.flowers {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+}
+
+
+.flowers span {
+
+    position: absolute;
+
+    font-size: 30px;
+
+    animation:
+        flowerFloat 4s ease-in-out infinite;
+
+}
+
+
+.flowers span:nth-child(1) {
+
+    top: 50px;
+    left: 40px;
+
+}
+
+
+.flowers span:nth-child(2) {
+
+    top: 100px;
+    right: 70px;
+
+}
+
+
+.flowers span:nth-child(3) {
+
+    top: 230px;
+    left: 100px;
+
+}
+
+
+.flowers span:nth-child(4) {
+
+    top: 190px;
+    right: 40px;
+
+}
+
+
+.flowers span:nth-child(5) {
+
+    bottom: 180px;
+    right: 130px;
+
+}
+
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+
+}
+
+
+/* =========================================================
+   MARIA PADILHA
+   ========================================================= */
+
+.maria-padilha {
+
+    background:
+
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(198,43,66,0.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #110708,
+            #260a10
+        );
+
+}
+
+
+.maria-padilha:hover {
+
+    border-color:
+        rgba(198,43,66,0.4);
+
+}
+
+
+.roses-decoration {
+
+    position: absolute;
+
+    top: 35px;
+    right: 45px;
+
+    font-size: 28px;
+
+    letter-spacing: 8px;
+
+}
+
+
+/* =========================================================
+   SETE SAIAS
+   ========================================================= */
+
+.sete-saias {
+
+    background:
+
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(92,40,117,0.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #09070b,
+            #1b0d22
+        );
+
+}
+
+
+.sete-saias:hover {
+
+    border-color:
+        rgba(141,77,177,0.4);
+
+}
+
+
+.skirts-decoration {
+
+    position: absolute;
+
+    top: 50px;
+    left: 50px;
+
+    color: var(--purple-light);
+
+    font-size: 24px;
+
+    letter-spacing: 18px;
+
+}
+
+
+/* =========================================================
+   FIGURAS DAS ENTIDADES
+   ========================================================= */
+
+.entity-figure {
+
+    height: 230px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 0;
+    right: 0;
+
+}
+
+
+.figure-symbol {
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 75px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    background:
+        rgba(0,0,0,0.15);
+
+    box-shadow:
+        inset 0 0 50px rgba(255,255,255,0.03),
+        0 0 50px rgba(0,0,0,0.2);
+
+    animation:
+        figurePulse 4s ease-in-out infinite;
+
+}
+
+
+@keyframes figurePulse {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+.figure-stars {
+
+    margin-top: 18px;
+
+    color: var(--gold-light);
+
+    letter-spacing: 12px;
+
+}
+
+
+.entity-content {
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+.entity-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+
+}
+
+
+.entity-content h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 31px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+}
+
+
+.entity-content p {
+
+    max-width: 500px;
+
+    margin-top: 15px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+.entity-colors {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+}
+
+
+.color {
+
+    width: 19px;
+    height: 19px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+}
+
+
+.color.black {
+    background: #050505;
+}
+
+.color.red {
+    background: #a91e32;
+}
+
+.color.white {
+    background: #f5f5f5;
+}
+
+.color.gold {
+    background: #d6ad54;
+}
+
+.color.yellow {
+    background: #f1c72d;
+}
+
+.color.orange {
+    background: #e88a19;
+}
+
+.color.purple {
+    background: #743d8f;
+}
+
+
+.entity-button {
+
+    margin-top: 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: transparent;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    padding: 0;
+
+}
+
+
+.entity-button span {
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.entity-button:hover span {
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   SEÇÕES ESPECÍFICAS DAS ENTIDADES
+   ========================================================= */
+
+.entity-detail {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+.detail-container {
+
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+.detail-visual {
+
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+}
+
+
+.large-symbol {
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 130px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    background:
+        rgba(0,0,0,0.2);
+
+    box-shadow:
+        0 0 100px rgba(0,0,0,0.3);
+
+}
+
+
+.detail-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+.detail-label {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.detail-content h2 {
+
+    margin-top: 15px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(38px, 5vw, 60px);
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+}
+
+
+.detail-content p {
+
+    margin: 25px 0 30px;
+
+    max-width: 580px;
+
+    color: var(--gray);
+
+    line-height: 1.9;
+
+}
+
+
+.detail-line {
+
+    width: 70px;
+
+    height: 2px;
+
+    margin-top: 20px;
+
+    background: var(--gold);
+
+}
+
+
+.detail-particles {
+
+    position: absolute;
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    letter-spacing: 20px;
+
+}
+
+
+/* =========================================================
+   DETALHE ZÉ PILINTRA
+   ========================================================= */
+
+.detail-ze {
+
+    background:
+
+        radial-gradient(
+            circle at 25% 50%,
+            rgba(143,21,37,0.22),
+            transparent 35%
+        ),
+
+        #090708;
+
+}
+
+
+/* =========================================================
+   DETALHE SAFIRA
+   ========================================================= */
+
+.detail-safira {
+
+    min-height: 700px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255,232,117,0.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #e0ae14,
+            #f2c82d,
+            #c58d00
+        );
+
+    color: #251b00;
+
+}
+
+
+.detail-safira .detail-label {
+
+    color: #493500;
+
+}
+
+
+.detail-safira .detail-content h2 {
+
+    color: #fff9d7;
+
+}
+
+
+.detail-safira .detail-content p {
+
+    color:
+        rgba(50,35,0,0.75);
+
+}
+
+
+.detail-safira .detail-line {
+
+    background: #fff3b0;
+
+}
+
+
+.detail-safira .large-symbol {
+
+    border-color:
+        rgba(255,255,255,0.4);
+
+}
+
+
+.safira-flowers {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    font-size: 35px;
+
+    letter-spacing: 20px;
+
+    opacity: 0.8;
+
+    animation:
+        flowerFloat 5s ease-in-out infinite;
+
+}
+
+
+.safira-flowers.bottom {
+
+    top: auto;
+
+    bottom: 30px;
+
+}
+
+
+.flower-symbol {
+
+    position: absolute;
+
+    font-size: 90px;
+
+    transform:
+        translate(80px, 100px);
+
+}
+
+
+/* =========================================================
+   DETALHE MARIA PADILHA
+   ========================================================= */
+
+.detail-padilha {
+
+    background:
+
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(143,21,37,0.3),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            120deg,
+            #080506,
+            #1d080d
+        );
+
+}
+
+
+.rose-big {
+
+    font-size: 150px;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(198,43,66,0.3)
+        );
+
+}
+
+
+/* =========================================================
+   DETALHE SETE SAIAS
+   ========================================================= */
+
+.detail-sete-saias {
+
+    background:
+
+        radial-gradient(
+            circle at 25% 50%,
+            rgba(92,40,117,0.35),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #070609,
+            #190d20
+        );
+
+}
+
+
+.skirt-symbol {
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 100px;
+
+    color: var(--purple-light);
+
+    border:
+        1px solid
+        rgba(141,77,177,0.35);
+
+    box-shadow:
+        0 0 80px
+        rgba(92,40,117,0.2);
+
+}
+
+
+/* =========================================================
+   CONSULTAS
+   ========================================================= */
+
+.consultations {
+
+    background: #0d090a;
+
+}
+
+
+.consultations-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.consultation-card {
+
+    padding: 40px 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.01)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+
+}
+
+
+.consultation-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(214,173,84,0.3);
+
+}
+
+
+.consultation-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.25);
+
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.consultation-card h3 {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+}
+
+
+.consultation-card p {
+
+    margin: 12px 0 22px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+.consultation-card a {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   FRASE
+   ========================================================= */
+
+.quote-section {
+
+    min-height: 500px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(143,21,37,0.25),
+            transparent 50%
+        ),
+
+        #090607;
+
+}
+
+
+.quote-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+}
+
+
+.quote-symbol {
+
+    color: var(--gold);
+
+    font-size: 30px;
+
+}
+
+
+.quote-content blockquote {
+
+    margin: 25px 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(28px, 4vw, 48px);
+
+    line-height: 1.45;
+
+    color: var(--cream);
+
+}
+
+
+.quote-author {
+
+    color: var(--gold);
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   DEPOIMENTOS
+   ========================================================= */
+
+.testimonials {
+
+    background: #080607;
+
+}
+
+
+.testimonials-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.testimonial-card {
+
+    padding: 35px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+}
+
+
+.testimonial-stars {
+
+    color: var(--gold);
+
+    letter-spacing: 4px;
+
+    font-size: 12px;
+
+}
+
+
+.testimonial-card p {
+
+    margin: 20px 0;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+}
+
+
+.testimonial-card span {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   CONTATO
+   ========================================================= */
+
+.contact {
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(143,21,37,0.12),
+            transparent 30%
+        ),
+
+        #0d090a;
+
+}
+
+
+.contact-wrapper {
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap: 70px;
+
+    align-items: start;
+
+}
+
+
+.contact-info h2 {
+
+    margin-top: 12px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: 500;
+
+}
+
+
+.contact-info > p {
+
+    margin-top: 20px;
+
+    max-width: 520px;
+
+    color: var(--gray);
+
+    line-height: 1.9;
+
+}
+
+
+.contact-items {
+
+    margin: 35px 0;
+
+    display: grid;
+
+    gap: 20px;
+
+}
+
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.contact-icon {
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.25);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.contact-item strong {
+
+    font-size: 13px;
+
+}
+
+
+.contact-item p {
+
+    margin-top: 3px;
+
+    color: var(--gray-dark);
+
+    font-size: 11px;
+
+}
+
+
+.contact-form-wrapper {
+
+    padding: 45px;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+}
+
+
+.form-heading {
+
+    margin-bottom: 30px;
+
+}
+
+
+.form-heading > span {
+
+    color: var(--gold);
+
+}
+
+
+.form-heading h3 {
+
+    margin-top: 8px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 26px;
+
+    font-weight: 500;
+
+}
+
+
+.form-heading p {
+
+    margin-top: 7px;
+
+    color: var(--gray);
+
+    font-size: 12px;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 20px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--cream);
+
+    font-size: 11px;
+
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    background:
+        rgba(0,0,0,0.25);
+
+    color: var(--white);
+
+    outline: none;
+
+    padding: 15px;
+
+    border-radius: 2px;
+
+    transition:
+        border-color 0.3s ease;
+
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #716a6c;
+
+}
+
+
+.form-group select option {
+
+    background: #151011;
+
+    color: #fff;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color:
+        rgba(214,173,84,0.6);
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 130px;
+
+}
+
+
+.form-submit {
+
+    width: 100%;
+
+}
+
+
+.form-message {
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    padding-top: 60px;
+
+    background: #060506;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.06);
+
+}
+
+
+.footer-container {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 50px;
+
+}
+
+
+.footer-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--gold-light);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 22px;
+
+}
+
+
+.footer-logo span {
+
+    color: var(--gold);
+
+}
+
+
+.footer-brand p {
+
+    margin-top: 15px;
+
+    max-width: 300px;
+
+    color: var(--gray-dark);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.footer-links,
+.footer-social {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.footer-links a,
+.footer-social a {
+
+    color: var(--gray);
+
+    font-size: 12px;
+
+    transition:
+        color 0.3s ease;
+
+}
+
+
+.footer-links a:hover,
+.footer-social a:hover {
+
+    color: var(--gold);
+
+}
+
+
+.footer-bottom {
+
+    padding: 20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.05);
+
+    text-align: center;
+
+}
+
+
+.footer-bottom p {
+
+    color: #625b5d;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   MODAL DAS ENTIDADES
+   ========================================================= */
+
+.entity-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9990;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+}
+
+
+.entity-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.85);
+
+    backdrop-filter:
+        blur(8px);
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(600px, 100%);
+
+    padding: 50px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171012,
+            #0a0809
+        );
+
+    border:
+        1px solid
+        rgba(214,173,84,0.3);
+
+    text-align: center;
+
+    transform:
+        translateY(20px)
+        scale(0.97);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.entity-modal.active .modal-content {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 35px;
+    height: 35px;
+
+    background: transparent;
+
+    color: var(--gray);
+
+    font-size: 28px;
+
+}
+
+
+.modal-figure {
+
+    width: 130px;
+    height: 130px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(214,173,84,0.06);
+
+    border:
+        1px solid
+        rgba(214,173,84,0.3);
+
+}
+
+
+.modal-figure span {
+
+    font-size: 60px;
+
+}
+
+
+.modal-label {
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.modal-content h2 {
+
+    margin-top: 10px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 32px;
+
+}
+
+
+.modal-colors {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 15px 0;
+
+}
+
+
+.modal-content > p {
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin: 20px 0 25px;
+
+}
+
+
+/* =========================================================
+   WHATSAPP FLUTUANTE
+   ========================================================= */
+
+.floating-whatsapp {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 900;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #25D366;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.floating-whatsapp:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.floating-whatsapp span {
+
+    font-size: 27px;
+
+}
+
+
+/* =========================================================
+   VOLTAR AO TOPO
+   ========================================================= */
+
+.back-to-top {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 100px;
+
+    z-index: 800;
+
+    width: 45px;
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(214,173,84,0.3);
+
+    background:
+        rgba(10,7,8,0.8);
+
+    color: var(--gold);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+.back-to-top.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.back-to-top:hover {
+
+    background:
+        rgba(214,173,84,0.1);
+
+}
+
+
+/* =========================================================
+   ANIMAÇÕES AO ENTRAR NA TELA
+   ========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+
+    .navigation {
+
+        gap: 18px;
+
     }
 
 
-    h1 {
+    .navigation a {
 
-        font-size: 28px;
+        font-size: 11px;
+
     }
 
 
-    h2 {
+    .about-grid {
 
-        font-size: 25px;
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+
     }
 
 
-    .heart {
+    .about-visual {
 
-        font-size: 60px;
+        min-height: 400px;
+
     }
 
 
-    .big-heart {
+    .consultations-grid {
 
-        font-size: 75px;
+        grid-template-columns:
+            repeat(2, 1fr);
+
     }
 
 
-    .card > p {
+    .contact-wrapper {
 
-        font-size: 16px;
+        grid-template-columns:
+            1fr;
+
     }
 
 
-    .main-button {
+    .footer-container {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+
+    .header {
+
+        padding: 15px 0;
+
+    }
+
+
+    .logo {
+
+        font-size: 18px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: flex;
+
+    }
+
+
+    .navigation {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+        right: 0;
+
+        padding: 25px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        background:
+            rgba(8,6,7,0.98);
+
+        border-top:
+            1px solid
+            rgba(214,173,84,0.15);
+
+        transform:
+            translateY(-10px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition:
+            all 0.3s ease;
+
+    }
+
+
+    .navigation.active {
+
+        transform:
+            translateY(0);
+
+        opacity: 1;
+
+        visibility: visible;
+
+    }
+
+
+    .navigation a {
+
+        font-size: 13px;
+
+    }
+
+
+    .hero {
+
+        min-height: 100svh;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .hero p {
+
+        font-size: 13px;
+
+        padding: 0 15px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
 
         width: 100%;
+
+    }
+
+
+    .hero-buttons .btn {
+
+        width: min(300px, 90%);
+
+    }
+
+
+    .section {
+
+        padding: 85px 0;
+
+    }
+
+
+    .section-heading {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    .spiritual-circle {
+
+        width: 280px;
+        height: 280px;
+
+    }
+
+
+    .circle-symbol {
+
+        font-size: 70px;
+
+    }
+
+
+    .entity-card {
+
+        min-height: 540px;
+
+        padding: 30px;
+
+    }
+
+
+    .entities-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .entity-content h3 {
+
+        font-size: 27px;
+
+    }
+
+
+    .entity-detail {
+
+        min-height: 650px;
+
+        padding: 80px 0;
+
+    }
+
+
+    .detail-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+
+    }
+
+
+    .detail-container .detail-visual {
+
+        order: -1;
+
+        min-height: 300px;
+
+    }
+
+
+    .large-symbol {
+
+        width: 230px;
+        height: 230px;
+
+        font-size: 90px;
+
+    }
+
+
+    .detail-content h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    .detail-safira {
+
+        min-height: 700px;
+
+    }
+
+
+    .consultations-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .testimonials-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .contact-form-wrapper {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .footer-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .modal-content {
+
+        padding: 40px 25px;
+
+    }
+
+
+    .floating-whatsapp {
+
+        width: 55px;
+        height: 55px;
+
+        right: 18px;
+        bottom: 18px;
+
+    }
+
+
+    .back-to-top {
+
+        right: 18px;
+
+        bottom: 85px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+
+    .hero h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .entity-card {
+
+        padding: 25px;
+
+    }
+
+
+    .figure-symbol {
+
+        width: 125px;
+        height: 125px;
+
+        font-size: 60px;
+
+    }
+
+
+    .contact-form-wrapper {
+
+        padding: 25px 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
     }
 
 }
