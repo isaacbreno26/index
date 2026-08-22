@@ -9,9 +9,9 @@
 
 // COLOQUE AQUI O NÚMERO DO WHATSAPP
 // Formato: código do país + DDD + número
-// Exemplo: 5561999999999
+// Exemplo: 5561982584656
 
-const WHATSAPP_NUMBER = "5500000000000";
+const WHATSAPP_NUMBER = "5561982584656";
 
 
 /* =========================================================
