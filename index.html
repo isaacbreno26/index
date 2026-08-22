@@ -1,351 +1,1566 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Um convite especial ❤️</title>
+    <meta name="description"
+        content="Mãe Dinha - Consultas espirituais, orientação e caminhos de luz.">
 
+    <title>Mãe Dinha | Caminhos, Fé e Espiritualidade</title>
+
+    <!-- Fonte principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Fundo com corações -->
-    <div class="hearts-container"></div>
+    <!-- =====================================================
+         PRELOADER
+    ====================================================== -->
 
-    <!-- =========================
-         TELA 1 - INÍCIO
-    ========================== -->
+    <div id="preloader">
 
-    <section class="page active" id="page1">
+        <div class="loader-content">
 
-        <div class="card">
+            <div class="loader-symbol">
+                ✦
+            </div>
 
-            <div class="heart">❤️</div>
+            <h2>Mãe Dinha</h2>
 
-            <h1>Olá, princesa! 😌</h1>
-
-            <p class="typing-text" id="introText"></p>
-
-            <button class="main-button" onclick="nextPage(2)">
-                Continuar ❤️
-            </button>
+            <p>Preparando seus caminhos...</p>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- =========================
-         TELA 2 - MOTIVOS
-    ========================== -->
+    <!-- =====================================================
+         ELEMENTOS DECORATIVOS
+    ====================================================== -->
 
-    <section class="page" id="page2">
+    <div class="particles"></div>
 
-        <div class="card">
+    <div class="floating-hearts"></div>
 
-            <div class="emoji-title">🥰</div>
+    <div class="stars"></div>
 
-            <h2>então vamos la</h2>
 
-            <p>
-                Você precisa saber alguns motivos para aceitar esse convite.
-            </p>
+    <!-- =====================================================
+         MENU / HEADER
+    ====================================================== -->
 
-            <div class="reasons">
+    <header class="header" id="header">
 
-                <div class="reason">
-                    <span>😂</span>
-                    <p>Prometo que você vai dar algumas risadas.</p>
+        <div class="container nav-container">
+
+            <a href="#inicio" class="logo">
+
+                <span class="logo-symbol">✦</span>
+
+                <span>
+                    Mãe Dinha
+                </span>
+
+            </a>
+
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <nav class="navigation" id="navigation">
+
+                <a href="#inicio">Início</a>
+
+                <a href="#sobre">Sobre</a>
+
+                <a href="#entidades">Entidades</a>
+
+                <a href="#consultas">Consultas</a>
+
+                <a href="#depoimentos">Depoimentos</a>
+
+                <a href="#contato">Contato</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO / INÍCIO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content container">
+
+                <div class="hero-symbol">
+                    ✦
                 </div>
 
-                <div class="reason">
-                    <span>🍔</span>
-                    <p>vamos jantar em um lugar bem bacana e a unica coisa que precisa se preocupar e em ir bonita e cheirosa.</p>
-                </div>
+                <span class="hero-subtitle">
+                    FÉ • ESPIRITUALIDADE • ORIENTAÇÃO
+                </span>
 
-                <div class="reason">
-                    <span>🥰</span>
-                    <p>E COM CERTEZA EU VOU PEGAR UM ICE DOS TOP PRA GENTE KKKK.</p>
-                </div>
+                <h1>
+                    Mãe Dinha
+                </h1>
 
-                <div class="reason">
-                    <span>❤️</span>
-                    <p>E eu sou bem legal prometo.</p>
+                <h2>
+                    Caminhos de luz para sua vida
+                </h2>
+
+                <p>
+                    Encontre orientação, equilíbrio e respostas
+                    através da espiritualidade.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#consultas" class="btn btn-primary">
+                        Conheça as consultas
+                    </a>
+
+                    <a href="#contato" class="btn btn-outline">
+                        Falar com Mãe Dinha
+                    </a>
+
                 </div>
 
             </div>
 
-            <button class="main-button" onclick="nextPage(3)">
-                Acho que faz sentido 👀
-            </button>
 
-        </div>
+            <div class="scroll-indicator">
 
-    </section>
+                <span>Descubra</span>
+
+                <div class="scroll-arrow">
+                    ↓
+                </div>
+
+            </div>
+
+        </section>
 
 
-    <!-- =========================
-         TELA 3 - LOCAL
-    ========================== -->
+        <!-- =====================================================
+             SOBRE A MÃE DINHA
+        ====================================================== -->
 
-    <section class="page" id="page3">
+        <section class="about section" id="sobre">
 
-        <div class="card">
+            <div class="container">
 
-            <div class="emoji-title">📍</div>
+                <div class="section-heading">
 
-            <h2>Agora você escolhe...</h2>
+                    <span class="section-decoration">
+                        ✦
+                    </span>
 
-            <p>
-                Onde você gostaria de ir comigo?
-            </p>
+                    <span class="section-subtitle">
+                        CONHEÇA
+                    </span>
 
-            <div class="options">
+                    <h2>
+                        Mãe Dinha
+                    </h2>
 
-                <button
-                    class="option"
-                    onclick="selectPlace(this, 'Lugar 1')">
+                    <div class="section-line"></div>
 
-                    <span>🌹</span>
+                </div>
 
-                    <div>
-                        <strong>TARUMÃ</strong>
-                        <small>Uma opção especial</small>
+
+                <div class="about-grid">
+
+
+                    <!-- Figura ilustrativa -->
+                    <div class="about-visual">
+
+                        <div class="spiritual-circle">
+
+                            <div class="circle-symbol">
+                                ✦
+                            </div>
+
+                            <div class="circle-stars">
+                                ✧ ✦ ✧
+                            </div>
+
+                        </div>
+
+                        <div class="about-decoration about-decoration-1">
+                            ✦
+                        </div>
+
+                        <div class="about-decoration about-decoration-2">
+                            ❈
+                        </div>
+
                     </div>
 
-                </button>
+
+                    <!-- Texto -->
+
+                    <div class="about-content">
+
+                        <span class="small-title">
+                            UM CAMINHO DE FÉ
+                        </span>
+
+                        <h3>
+                            Orientação para os caminhos da vida
+                        </h3>
+
+                        <p>
+                            A espiritualidade pode trazer luz para
+                            momentos de dúvidas, mudanças e decisões.
+                        </p>
+
+                        <p>
+                            Através das consultas e da orientação
+                            espiritual, Mãe Dinha oferece um espaço
+                            de acolhimento, fé e reflexão.
+                        </p>
+
+                        <p>
+                            Cada atendimento é realizado de maneira
+                            individual, respeitando a história e o
+                            momento de cada pessoa.
+                        </p>
 
 
-                <button
-                    class="option"
-                    onclick="selectPlace(this, 'Lugar 2')">
+                        <div class="about-features">
 
-                    <span>✨</span>
+                            <div class="feature-item">
 
-                    <div>
-                        <strong>DOM MANJU</strong>
-                        <small>Outra opção especial</small>
+                                <span class="feature-icon">
+                                    ✦
+                                </span>
+
+                                <div>
+                                    <h4>
+                                        Acolhimento
+                                    </h4>
+
+                                    <p>
+                                        Atendimento individualizado.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <span class="feature-icon">
+                                    ✧
+                                </span>
+
+                                <div>
+                                    <h4>
+                                        Orientação
+                                    </h4>
+
+                                    <p>
+                                        Clareza para seus caminhos.
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="feature-item">
+
+                                <span class="feature-icon">
+                                    ❈
+                                </span>
+
+                                <div>
+                                    <h4>
+                                        Espiritualidade
+                                    </h4>
+
+                                    <p>
+                                        Fé e conexão espiritual.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                </button>
-
-            </div>
-
-            <button
-                class="main-button disabled"
-                id="placeButton"
-                onclick="nextPage(4)">
-
-                Escolha um lugar ❤️
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TELA 4 - DATA
-    ========================== -->
-
-    <section class="page" id="page4">
-
-        <div class="card">
-
-            <div class="emoji-title">📅</div>
-
-            <h2>Agora falta o dia...</h2>
-
-            <p>
-                Escolha uma data para nosso encontro.
-            </p>
-
-            <div class="input-group">
-
-                <label for="date">
-                    Qual dia você prefere?
-                </label>
-
-                <input
-                    type="date"
-                    id="date"
-                    onchange="checkDate()">
-
-            </div>
-
-            <button
-                class="main-button disabled"
-                id="dateButton"
-                onclick="nextPage(5)">
-
-                Continuar ❤️
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TELA 5 - OBSERVAÇÃO
-    ========================== -->
-
-    <section class="page" id="page5">
-
-        <div class="card">
-
-            <div class="emoji-title">💌</div>
-
-            <h2>Uma última coisa...</h2>
-
-            <p>
-                Tem alguma observação, pedido ou exigência?
-            </p>
-
-            <div class="input-group">
-
-                <label for="message">
-                    Escreva aqui:
-                </label>
-
-                <textarea
-                    id="message"
-                    placeholder="Ex: Quero ir às 19h... 😌"
-                    maxlength="500">
-                </textarea>
-
-            </div>
-
-            <button
-                class="main-button"
-                onclick="finishInvitation()">
-
-                Finalizar convite ❤️
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TELA 6 - FINAL
-    ========================== -->
-
-    <section class="page" id="page6">
-
-        <div class="card final-card">
-
-            <div class="big-heart">
-                ❤️
-            </div>
-
-            <h1>Então está combinado! 🥰</h1>
-
-            <p>
-                Agora só falta a gente colocar esse plano em prática.
-            </p>
-
-
-            <div class="summary">
-
-                <div>
-                    <span>📍</span>
-
-                    <strong>Local</strong>
-
-                    <p id="finalPlace">
-                        -
-                    </p>
-                </div>
-
-
-                <div>
-                    <span>📅</span>
-
-                    <strong>Data</strong>
-
-                    <p id="finalDate">
-                        -
-                    </p>
-                </div>
-
-
-                <div>
-                    <span>💌</span>
-
-                    <strong>Observação</strong>
-
-                    <p id="finalMessage">
-                        Nenhuma observação
-                    </p>
                 </div>
 
             </div>
 
+        </section>
+
+
+        <!-- =====================================================
+             ENTIDADES
+        ====================================================== -->
+
+        <section class="entities section" id="entidades">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-decoration">
+                        ✦
+                    </span>
+
+                    <span class="section-subtitle">
+                        CONHEÇA
+                    </span>
+
+                    <h2>
+                        Entidades
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                    <p>
+                        Conheça as entidades com as quais podem ser
+                        realizadas consultas e orientações.
+                    </p>
+
+                </div>
+
+
+                <div class="entities-grid">
+
+
+                    <!-- =================================================
+                         ZÉ PILINTRA
+                    ================================================== -->
+
+                    <article class="entity-card ze-pilintra">
+
+                        <div class="entity-glow"></div>
+
+                        <div class="entity-figure">
+
+                            <div class="figure-symbol">
+                                🎩
+                            </div>
+
+                            <div class="figure-stars">
+                                ✦ ✧ ✦
+                            </div>
+
+                        </div>
+
+                        <div class="entity-content">
+
+                            <span class="entity-label">
+                                ENTIDADE
+                            </span>
+
+                            <h3>
+                                Zé Pilintra
+                            </h3>
+
+                            <div class="entity-colors">
+
+                                <span class="color black"></span>
+                                <span class="color red"></span>
+                                <span class="color white"></span>
+
+                            </div>
+
+                            <p>
+                                Conheça a força e a energia de Zé
+                                Pilintra através da consulta espiritual.
+                            </p>
+
+                            <button
+                                class="entity-button"
+                                data-entity="ze-pilintra">
+
+                                Conhecer entidade
+                                <span>→</span>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         CIGANA SAFIRA
+                    ================================================== -->
+
+                    <article class="entity-card cigana-safira">
+
+                        <div class="flowers">
+
+                            <span>🌻</span>
+                            <span>🌼</span>
+                            <span>🌻</span>
+                            <span>🌼</span>
+                            <span>🌻</span>
+
+                        </div>
+
+                        <div class="entity-figure">
+
+                            <div class="figure-symbol">
+                                ✧
+                            </div>
+
+                            <div class="figure-stars">
+                                ✦ 🌻 ✦
+                            </div>
+
+                        </div>
+
+                        <div class="entity-content">
+
+                            <span class="entity-label">
+                                ENTIDADE
+                            </span>
+
+                            <h3>
+                                Cigana Safira
+                            </h3>
+
+                            <div class="entity-colors">
+
+                                <span class="color yellow"></span>
+                                <span class="color gold"></span>
+                                <span class="color orange"></span>
+
+                            </div>
+
+                            <p>
+                                Uma área dedicada à energia, beleza
+                                e simbolismo da Cigana Safira.
+                            </p>
+
+                            <button
+                                class="entity-button"
+                                data-entity="cigana-safira">
+
+                                Conhecer entidade
+                                <span>→</span>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         MARIA PADILHA
+                    ================================================== -->
+
+                    <article class="entity-card maria-padilha">
+
+                        <div class="roses-decoration">
+                            🌹 ✦ 🌹
+                        </div>
+
+                        <div class="entity-figure">
+
+                            <div class="figure-symbol">
+                                ♠
+                            </div>
+
+                            <div class="figure-stars">
+                                ✦ 🌹 ✦
+                            </div>
+
+                        </div>
+
+                        <div class="entity-content">
+
+                            <span class="entity-label">
+                                ENTIDADE
+                            </span>
+
+                            <h3>
+                                Dona Maria Padilha
+                                <br>
+                                Sete Encruzas
+                            </h3>
+
+                            <div class="entity-colors">
+
+                                <span class="color black"></span>
+                                <span class="color red"></span>
+                                <span class="color gold"></span>
+
+                            </div>
+
+                            <p>
+                                Uma representação visual elegante e
+                                marcante dedicada a Dona Maria Padilha.
+                            </p>
+
+                            <button
+                                class="entity-button"
+                                data-entity="maria-padilha">
+
+                                Conhecer entidade
+                                <span>→</span>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         SETE SAIAS DA CALUNGA
+                    ================================================== -->
+
+                    <article class="entity-card sete-saias">
+
+                        <div class="skirts-decoration">
+
+                            <span>✦</span>
+                            <span>✧</span>
+                            <span>✦</span>
+
+                        </div>
+
+                        <div class="entity-figure">
+
+                            <div class="figure-symbol">
+                                ♡
+                            </div>
+
+                            <div class="figure-stars">
+                                ✦ 🌹 ✦
+                            </div>
+
+                        </div>
+
+                        <div class="entity-content">
+
+                            <span class="entity-label">
+                                ENTIDADE
+                            </span>
+
+                            <h3>
+                                Pomba Gira
+                                <br>
+                                Sete Saias da Calunga
+                            </h3>
+
+                            <div class="entity-colors">
+
+                                <span class="color black"></span>
+                                <span class="color red"></span>
+                                <span class="color purple"></span>
+
+                            </div>
+
+                            <p>
+                                Uma área especial dedicada à energia
+                                e simbologia da Pomba Gira Sete Saias.
+                            </p>
+
+                            <button
+                                class="entity-button"
+                                data-entity="sete-saias">
+
+                                Conhecer entidade
+                                <span>→</span>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÁREA ZÉ PILINTRA
+        ====================================================== -->
+
+        <section class="entity-detail detail-ze" id="ze-pilintra">
+
+            <div class="container detail-container">
+
+                <div class="detail-visual">
+
+                    <div class="large-symbol">
+                        🎩
+                    </div>
+
+                    <div class="detail-particles">
+                        ✦ ✧ ✦ ✧ ✦
+                    </div>
+
+                </div>
+
+
+                <div class="detail-content">
+
+                    <span class="detail-label">
+                        ZÉ PILINTRA
+                    </span>
+
+                    <h2>
+                        Força, proteção e caminhos
+                    </h2>
+
+                    <div class="detail-line"></div>
+
+                    <p>
+                        Uma área especial para apresentar a forma
+                        de consulta e orientação relacionada à entidade.
+                    </p>
+
+                    <a href="#contato" class="btn btn-primary">
+                        Agendar consulta
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÁREA CIGANA SAFIRA
+        ====================================================== -->
+
+        <section class="entity-detail detail-safira" id="cigana-safira">
+
+            <div class="safira-flowers">
+
+                🌻 🌼 🌻 🌼 🌻 🌼 🌻
+
+            </div>
+
+            <div class="container detail-container">
+
+                <div class="detail-content">
+
+                    <span class="detail-label">
+                        CIGANA SAFIRA
+                    </span>
+
+                    <h2>
+                        Flores, luz e caminhos
+                    </h2>
+
+                    <div class="detail-line"></div>
+
+                    <p>
+                        Uma área especial dedicada à Cigana Safira,
+                        com uma identidade visual iluminada, amarela
+                        e repleta de flores.
+                    </p>
+
+                    <a href="#contato" class="btn btn-dark">
+                        Agendar consulta
+                    </a>
+
+                </div>
+
+
+                <div class="detail-visual">
+
+                    <div class="large-symbol">
+                        ✧
+                    </div>
+
+                    <div class="flower-symbol">
+                        🌻
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="safira-flowers bottom">
+                🌼 🌻 🌼 🌻 🌼
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÁREA MARIA PADILHA
+        ====================================================== -->
+
+        <section
+            class="entity-detail detail-padilha"
+            id="maria-padilha">
+
+            <div class="container detail-container">
+
+                <div class="detail-visual">
+
+                    <div class="rose-big">
+                        🌹
+                    </div>
+
+                    <div class="detail-particles">
+                        ✦ ✧ ✦
+                    </div>
+
+                </div>
+
+
+                <div class="detail-content">
+
+                    <span class="detail-label">
+                        DONA MARIA PADILHA SETE ENCRUZAS
+                    </span>
+
+                    <h2>
+                        Presença, força e mistério
+                    </h2>
+
+                    <div class="detail-line"></div>
+
+                    <p>
+                        Um espaço visual inspirado em vermelho,
+                        preto e dourado, com rosas e elementos
+                        ornamentais.
+                    </p>
+
+                    <a href="#contato" class="btn btn-primary">
+                        Agendar consulta
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ÁREA SETE SAIAS DA CALUNGA
+        ====================================================== -->
+
+        <section
+            class="entity-detail detail-sete-saias"
+            id="sete-saias">
+
+            <div class="container detail-container">
+
+                <div class="detail-content">
+
+                    <span class="detail-label">
+                        POMBA GIRA SETE SAIAS DA CALUNGA
+                    </span>
+
+                    <h2>
+                        Mistério, força e presença
+                    </h2>
+
+                    <div class="detail-line"></div>
+
+                    <p>
+                        Uma identidade visual inspirada em tons
+                        profundos de preto, vermelho e roxo,
+                        representando a força e o mistério da entidade.
+                    </p>
+
+                    <a href="#contato" class="btn btn-primary">
+                        Agendar consulta
+                    </a>
+
+                </div>
+
+
+                <div class="detail-visual">
+
+                    <div class="skirt-symbol">
+                        ✦
+                    </div>
+
+                    <div class="detail-particles">
+                        ✧ ✦ ✧
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONSULTAS
+        ====================================================== -->
+
+        <section class="consultations section" id="consultas">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-decoration">
+                        ✦
+                    </span>
+
+                    <span class="section-subtitle">
+                        ATENDIMENTOS
+                    </span>
+
+                    <h2>
+                        Consultas Espirituais
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                    <p>
+                        Escolha o tipo de atendimento que deseja
+                        conhecer.
+                    </p>
+
+                </div>
+
+
+                <div class="consultations-grid">
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            🔮
+                        </div>
+
+                        <h3>
+                            Consulta Espiritual
+                        </h3>
+
+                        <p>
+                            Atendimento individual para orientação
+                            e aconselhamento.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            🃏
+                        </div>
+
+                        <h3>
+                            Baralho Cigano
+                        </h3>
+
+                        <p>
+                            Uma consulta voltada para questões
+                            e caminhos da vida.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            🐚
+                        </div>
+
+                        <h3>
+                            Jogo de Búzios
+                        </h3>
+
+                        <p>
+                            Atendimento espiritual através do
+                            jogo de búzios.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Consulta com Entidades
+                        </h3>
+
+                        <p>
+                            Conheça as possibilidades de atendimento
+                            com as entidades.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            ❤️
+                        </div>
+
+                        <h3>
+                            Questões Amorosas
+                        </h3>
+
+                        <p>
+                            Orientação espiritual para questões
+                            relacionadas ao amor.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="consultation-card">
+
+                        <div class="consultation-icon">
+                            🛤️
+                        </div>
+
+                        <h3>
+                            Abertura de Caminhos
+                        </h3>
+
+                        <p>
+                            Orientação para momentos de mudança
+                            e novos caminhos.
+                        </p>
+
+                        <a href="#contato">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE DE IMPACTO
+        ====================================================== -->
+
+        <section class="quote-section">
+
+            <div class="quote-overlay"></div>
+
+            <div class="container quote-content">
+
+                <span class="quote-symbol">
+                    ✦
+                </span>
+
+                <blockquote>
+                    "Que a fé ilumine seus caminhos e que cada
+                    passo seja guiado pela luz."
+                </blockquote>
+
+                <span class="quote-author">
+                    — Mãe Dinha
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             DEPOIMENTOS
+        ====================================================== -->
+
+        <section class="testimonials section" id="depoimentos">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-decoration">
+                        ✦
+                    </span>
+
+                    <span class="section-subtitle">
+                        EXPERIÊNCIAS
+                    </span>
+
+                    <h2>
+                        Depoimentos
+                    </h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+                <div class="testimonials-grid">
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Espaço reservado para o depoimento
+                            de uma pessoa atendida."
+                        </p>
+
+                        <span>
+                            Cliente
+                        </span>
+
+                    </article>
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Espaço reservado para outro depoimento
+                            de cliente."
+                        </p>
+
+                        <span>
+                            Cliente
+                        </span>
+
+                    </article>
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Aqui você poderá colocar os depoimentos
+                            reais dos seus clientes."
+                        </p>
+
+                        <span>
+                            Cliente
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTATO
+        ====================================================== -->
+
+        <section class="contact section" id="contato">
+
+            <div class="container">
+
+                <div class="contact-wrapper">
+
+
+                    <div class="contact-info">
+
+                        <span class="section-subtitle">
+                            ENTRE EM CONTATO
+                        </span>
+
+                        <h2>
+                            Fale com Mãe Dinha
+                        </h2>
+
+                        <p>
+                            Deseja saber mais sobre as consultas?
+                            Entre em contato para receber informações
+                            sobre os atendimentos.
+                        </p>
+
+
+                        <div class="contact-items">
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    💬
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        WhatsApp
+                                    </strong>
+
+                                    <p>
+                                        Atendimento pelo WhatsApp
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    📍
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Atendimento
+                                    </strong>
+
+                                    <p>
+                                        Presencial e/ou online
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    ✦
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Horários
+                                    </strong>
+
+                                    <p>
+                                        Consulte a disponibilidade
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ALTERAR O NÚMERO DO WHATSAPP NO JS -->
+
+                        <a
+                            href="#"
+                            class="btn btn-primary whatsapp-button"
+                            id="whatsappButton">
+
+                            💬 Falar pelo WhatsApp
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- FORMULÁRIO -->
+
+                    <div class="contact-form-wrapper">
+
+                        <form
+                            id="contactForm"
+                            class="contact-form">
+
+
+                            <div class="form-heading">
+
+                                <span>
+                                    ✦
+                                </span>
+
+                                <h3>
+                                    Solicite informações
+                                </h3>
+
+                                <p>
+                                    Preencha os dados abaixo.
+                                </p>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Nome
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Seu nome"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    WhatsApp
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="(00) 00000-0000"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="service">
+                                    Interesse
+                                </label>
+
+                                <select
+                                    id="service"
+                                    name="service"
+                                    required>
+
+                                    <option value="">
+                                        Selecione uma opção
+                                    </option>
+
+                                    <option value="Consulta Espiritual">
+                                        Consulta Espiritual
+                                    </option>
+
+                                    <option value="Baralho Cigano">
+                                        Baralho Cigano
+                                    </option>
+
+                                    <option value="Jogo de Búzios">
+                                        Jogo de Búzios
+                                    </option>
+
+                                    <option value="Consulta com Entidades">
+                                        Consulta com Entidades
+                                    </option>
+
+                                    <option value="Questões Amorosas">
+                                        Questões Amorosas
+                                    </option>
+
+                                    <option value="Abertura de Caminhos">
+                                        Abertura de Caminhos
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Mensagem
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    placeholder="Como podemos ajudar?"
+                                    required></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary form-submit">
+
+                                Enviar mensagem
+
+                            </button>
+
+
+                            <div
+                                id="formMessage"
+                                class="form-message">
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+
+                    <span>
+                        ✦
+                    </span>
+
+                    Mãe Dinha
+
+                </div>
+
+                <p>
+                    Fé, espiritualidade e orientação para seus caminhos.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#entidades">
+                    Entidades
+                </a>
+
+                <a href="#consultas">
+                    Consultas
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <!-- COLOQUE AQUI O INSTAGRAM -->
+
+                <a href="#" aria-label="Instagram">
+                    Instagram
+                </a>
+
+                <!-- COLOQUE AQUI O FACEBOOK -->
+
+                <a href="#" aria-label="Facebook">
+                    Facebook
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Mãe Dinha. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         MODAL DAS ENTIDADES
+    ====================================================== -->
+
+    <div
+        class="entity-modal"
+        id="entityModal"
+        aria-hidden="true">
+
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+
+        <div class="modal-content">
 
             <button
-                class="main-button"
-                onclick="confirmDate()">
+                class="modal-close"
+                id="modalClose"
+                aria-label="Fechar">
 
-                CONFIRMAR ENCONTRO ❤️
+                ×
 
             </button>
 
-        </div>
 
-    </section>
+            <div class="modal-figure">
 
+                <span id="modalSymbol">
+                    ✦
+                </span>
 
-    <!-- =========================
-         TELA 7 - CONFIRMADO
-    ========================== -->
-
-    <section class="page" id="page7">
-
-        <div class="card success-card">
-
-            <div class="success-icon">
-                💖
             </div>
 
-            <h1>Você fez meu dia mais feliz!</h1>
 
-            <p>
-                Agora é oficial...
+            <span
+                class="modal-label"
+                id="modalLabel">
+
+                ENTIDADE
+
+            </span>
+
+
+            <h2 id="modalTitle">
+                Entidade
+            </h2>
+
+
+            <div
+                class="modal-colors"
+                id="modalColors">
+            </div>
+
+
+            <p id="modalDescription">
+                Informações sobre a entidade.
             </p>
 
-            <strong class="final-text">
-                Nosso encontro está marcado. 🥰
-            </strong>
 
-            <div class="hearts">
-                ❤️ 💕 ❤️ 💕 ❤️
-            </div>
+            <a
+                href="#contato"
+                class="btn btn-primary"
+                id="modalContact">
+
+                Agendar consulta
+
+            </a>
 
         </div>
 
-    </section>
+    </div>
 
 
-   <!-- EmailJS -->
-<script
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+    <!-- =====================================================
+         BOTÃO WHATSAPP FLUTUANTE
+    ====================================================== -->
 
-<script>
-    emailjs.init({
-        publicKey: "GihJWuouFDfnbGa89"
-    });
-</script>
+    <a
+        href="#"
+        class="floating-whatsapp"
+        id="floatingWhatsapp"
+        aria-label="Falar pelo WhatsApp">
 
-<!-- Seu JavaScript -->
-<script src="script.js"></script>
+        <span>
+            💬
+        </span>
+
+    </a>
+
+
+    <!-- =====================================================
+         BOTÃO VOLTAR AO TOPO
+    ====================================================== -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        aria-label="Voltar ao topo">
+
+        ↑
+
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
